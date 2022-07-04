@@ -1,0 +1,1 @@
+/Users/presidentsdata/Desktop/Code/AndroidStudioProjects/SPRImage2/OpencvLib/build/intermediates/cxx/RelWithDebInfo/6p68192d/obj/x86

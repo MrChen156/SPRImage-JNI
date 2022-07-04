@@ -1,0 +1,27 @@
+{
+  "buildFiles": [
+    "/Users/presidentsdata/Desktop/Code/AndroidStudioProjects/SPRImage2/OpencvLib/libcxx_helper/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/Users/presidentsdata/Library/Android/sdk/cmake/3.18.1/bin/ninja",
+      "-C",
+      "/Users/presidentsdata/Desktop/Code/AndroidStudioProjects/SPRImage2/OpencvLib/.cxx/Debug/3372e1y6/x86",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/Users/presidentsdata/Library/Android/sdk/cmake/3.18.1/bin/ninja",
+    "-C",
+    "/Users/presidentsdata/Desktop/Code/AndroidStudioProjects/SPRImage2/OpencvLib/.cxx/Debug/3372e1y6/x86",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "opencv_jni_shared::@6890427a1f51a3e7e1df": {
+      "artifactName": "opencv_jni_shared",
+      "abi": "x86",
+      "output": "/Users/presidentsdata/Desktop/Code/AndroidStudioProjects/SPRImage2/OpencvLib/.cxx/Debug/3372e1y6/x86/libopencv_jni_shared.a",
+      "runtimeFiles": []
+    }
+  }
+}
