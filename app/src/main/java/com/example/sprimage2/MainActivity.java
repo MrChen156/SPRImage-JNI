@@ -6,20 +6,25 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.sprimage2.databinding.ActivityMainBinding;
 
+import org.opencv.android.Utils;
 import org.opencv.core.Mat;
 
+import java.io.FileNotFoundException;
 import java.util.Objects;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     // Used to load the 'sprimage2' library on application startup.
     static {
@@ -34,13 +39,32 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        Log.i(TOP_TAG, "开干！");
 
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        Button btnCurrent = (Button) findViewById(R.id.curBtn);
+        Button btnReference = (Button) findViewById(R.id.refBtn);
+        Button btnCompute = (Button) findViewById(R.id.comBtn);
 
-        // Example of a call to a native method
-        TextView tv = binding.sampleText;
-        tv.setText(stringFromJNI());
+//        binding = ActivityMainBinding.inflate(getLayoutInflater());
+//        setContentView(binding.getRoot());
+
+        Log.i(TOP_TAG, "监听buttons");
+        btnCompute.setOnClickListener(this);
+        btnCurrent.setOnClickListener(this);
+        btnReference.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View view){
+        int id = view.getId();
+        if (id == R.id.refBtn) {
+            selectReference();
+        } else if (id == R.id.curBtn) {
+            selectCurrent();
+        } else if (id == R.id.comBtn) {
+            doComputation();
+        }
     }
 
     ActivityResultLauncher<Intent> selectReferenceImageUri = registerForActivityResult(
@@ -67,29 +91,48 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
 
-    public void selectReference(View view) {
+    public void selectReference() {
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
         selectReferenceImageUri.launch(intent);
     }
 
-    public void selectCurrent(View view) {
+    public void selectCurrent() {
         selectCurrentImageUri.launch("image/*");
     }
 
-    public void doComputation(View view) {
+    public void doComputation() {
         if (currentImageUri != null && referenceImageUri != null){
             startComputation();
         } else if (currentImageUri == null) {
-            selectCurrent(view);
+            selectCurrent();
         } else if (referenceImageUri == null) {
-            selectReference(view);
+            selectReference();
         }
     }
 
     public void startComputation(){
-
+        // 判断大小在后面解决
+        // 这里解决传参问题
+        Bitmap bitmap;
+        Mat cur = new Mat();
+        Mat ref = new Mat();
+        try {
+            bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(currentImageUri));
+            Utils.bitmapToMat(bitmap, cur);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        try {
+            bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(referenceImageUri));
+            Utils.bitmapToMat(bitmap, ref);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        Double result = computeFromJni(cur.getNativeObjAddr(), ref.getNativeObjAddr());
+        TextView textView = (TextView) findViewById(R.id.sample_text);
+        textView.setText(result.toString());
     }
 
     private native double computeFromJni(long mat_Addr_cur, long mat_Addr_ref);
