@@ -15,7 +15,7 @@
   },
   {
     "level_": 0,
-    "message_": "rebuilding JSON /Users/presidentsdata/Desktop/Code/AndroidStudioProjects/SPRImage2/sdk/.cxx/Debug/5e616u3w/arm64-v8a/android_gradle_build.json due to:",
+    "message_": "JSON \u0027/Users/presidentsdata/Desktop/Code/AndroidStudioProjects/SPRImage2/sdk/.cxx/Debug/5e616u3w/arm64-v8a/android_gradle_build.json\u0027 was up-to-date",
     "file_": "/Users/presidentsdata/Desktop/Code/AndroidStudioProjects/SPRImage2/sdk/libcxx_helper/CMakeLists.txt",
     "tag_": "debug|arm64-v8a",
     "diagnosticCode_": 0,
@@ -25,147 +25,7 @@
       "fieldsDescending": {}
     },
     "memoizedSize": -1,
-    "memoizedHashCode": 899989875
-  },
-  {
-    "level_": 0,
-    "message_": "- expected json /Users/presidentsdata/Desktop/Code/AndroidStudioProjects/SPRImage2/sdk/.cxx/Debug/5e616u3w/arm64-v8a/android_gradle_build.json file is not present, will remove stale json folder",
-    "file_": "/Users/presidentsdata/Desktop/Code/AndroidStudioProjects/SPRImage2/sdk/libcxx_helper/CMakeLists.txt",
-    "tag_": "debug|arm64-v8a",
-    "diagnosticCode_": 0,
-    "memoizedIsInitialized": 1,
-    "unknownFields": {
-      "fields": {},
-      "fieldsDescending": {}
-    },
-    "memoizedSize": -1,
-    "memoizedHashCode": 838290985
-  },
-  {
-    "level_": 0,
-    "message_": "- missing previous command file /Users/presidentsdata/Desktop/Code/AndroidStudioProjects/SPRImage2/sdk/.cxx/Debug/5e616u3w/arm64-v8a/metadata_generation_command.txt, will remove stale json folder",
-    "file_": "/Users/presidentsdata/Desktop/Code/AndroidStudioProjects/SPRImage2/sdk/libcxx_helper/CMakeLists.txt",
-    "tag_": "debug|arm64-v8a",
-    "diagnosticCode_": 0,
-    "memoizedIsInitialized": 1,
-    "unknownFields": {
-      "fields": {},
-      "fieldsDescending": {}
-    },
-    "memoizedSize": -1,
-    "memoizedHashCode": 804875943
-  },
-  {
-    "level_": 0,
-    "message_": "- command changed from previous, will remove stale json folder",
-    "file_": "/Users/presidentsdata/Desktop/Code/AndroidStudioProjects/SPRImage2/sdk/libcxx_helper/CMakeLists.txt",
-    "tag_": "debug|arm64-v8a",
-    "diagnosticCode_": 0,
-    "memoizedIsInitialized": 1,
-    "unknownFields": {
-      "fields": {},
-      "fieldsDescending": {}
-    },
-    "memoizedSize": -1,
-    "memoizedHashCode": -1654507878
-  },
-  {
-    "level_": 0,
-    "message_": "removing stale contents from \u0027/Users/presidentsdata/Desktop/Code/AndroidStudioProjects/SPRImage2/sdk/.cxx/Debug/5e616u3w/arm64-v8a\u0027",
-    "file_": "/Users/presidentsdata/Desktop/Code/AndroidStudioProjects/SPRImage2/sdk/libcxx_helper/CMakeLists.txt",
-    "tag_": "debug|arm64-v8a",
-    "diagnosticCode_": 0,
-    "memoizedIsInitialized": 1,
-    "unknownFields": {
-      "fields": {},
-      "fieldsDescending": {}
-    },
-    "memoizedSize": -1,
-    "memoizedHashCode": 690729590
-  },
-  {
-    "level_": 0,
-    "message_": "created folder \u0027/Users/presidentsdata/Desktop/Code/AndroidStudioProjects/SPRImage2/sdk/.cxx/Debug/5e616u3w/arm64-v8a\u0027",
-    "file_": "/Users/presidentsdata/Desktop/Code/AndroidStudioProjects/SPRImage2/sdk/libcxx_helper/CMakeLists.txt",
-    "tag_": "debug|arm64-v8a",
-    "diagnosticCode_": 0,
-    "memoizedIsInitialized": 1,
-    "unknownFields": {
-      "fields": {},
-      "fieldsDescending": {}
-    },
-    "memoizedSize": -1,
-    "memoizedHashCode": 601567978
-  },
-  {
-    "level_": 0,
-    "message_": "executing cmake Executable : /Users/presidentsdata/Library/Android/sdk/cmake/3.18.1/bin/cmake\narguments : \n-H/Users/presidentsdata/Desktop/Code/AndroidStudioProjects/SPRImage2/sdk/libcxx_helper\n-DCMAKE_SYSTEM_NAME\u003dAndroid\n-DCMAKE_EXPORT_COMPILE_COMMANDS\u003dON\n-DCMAKE_SYSTEM_VERSION\u003d21\n-DANDROID_PLATFORM\u003dandroid-21\n-DANDROID_ABI\u003darm64-v8a\n-DCMAKE_ANDROID_ARCH_ABI\u003darm64-v8a\n-DANDROID_NDK\u003d/Users/presidentsdata/Library/Android/sdk/ndk/21.4.7075529\n-DCMAKE_ANDROID_NDK\u003d/Users/presidentsdata/Library/Android/sdk/ndk/21.4.7075529\n-DCMAKE_TOOLCHAIN_FILE\u003d/Users/presidentsdata/Library/Android/sdk/ndk/21.4.7075529/build/cmake/android.toolchain.cmake\n-DCMAKE_MAKE_PROGRAM\u003d/Users/presidentsdata/Library/Android/sdk/cmake/3.18.1/bin/ninja\n-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\u003d/Users/presidentsdata/Desktop/Code/AndroidStudioProjects/SPRImage2/sdk/build/intermediates/cxx/Debug/5e616u3w/obj/arm64-v8a\n-DCMAKE_RUNTIME_OUTPUT_DIRECTORY\u003d/Users/presidentsdata/Desktop/Code/AndroidStudioProjects/SPRImage2/sdk/build/intermediates/cxx/Debug/5e616u3w/obj/arm64-v8a\n-DCMAKE_BUILD_TYPE\u003dDebug\n-B/Users/presidentsdata/Desktop/Code/AndroidStudioProjects/SPRImage2/sdk/.cxx/Debug/5e616u3w/arm64-v8a\n-GNinja\n-DANDROID_STL\u003dc++_shared\njvmArgs : \n\n",
-    "file_": "/Users/presidentsdata/Desktop/Code/AndroidStudioProjects/SPRImage2/sdk/libcxx_helper/CMakeLists.txt",
-    "tag_": "debug|arm64-v8a",
-    "diagnosticCode_": 0,
-    "memoizedIsInitialized": 1,
-    "unknownFields": {
-      "fields": {},
-      "fieldsDescending": {}
-    },
-    "memoizedSize": -1,
-    "memoizedHashCode": -619903430
-  },
-  {
-    "level_": 0,
-    "message_": "Executable : /Users/presidentsdata/Library/Android/sdk/cmake/3.18.1/bin/cmake\narguments : \n-H/Users/presidentsdata/Desktop/Code/AndroidStudioProjects/SPRImage2/sdk/libcxx_helper\n-DCMAKE_SYSTEM_NAME\u003dAndroid\n-DCMAKE_EXPORT_COMPILE_COMMANDS\u003dON\n-DCMAKE_SYSTEM_VERSION\u003d21\n-DANDROID_PLATFORM\u003dandroid-21\n-DANDROID_ABI\u003darm64-v8a\n-DCMAKE_ANDROID_ARCH_ABI\u003darm64-v8a\n-DANDROID_NDK\u003d/Users/presidentsdata/Library/Android/sdk/ndk/21.4.7075529\n-DCMAKE_ANDROID_NDK\u003d/Users/presidentsdata/Library/Android/sdk/ndk/21.4.7075529\n-DCMAKE_TOOLCHAIN_FILE\u003d/Users/presidentsdata/Library/Android/sdk/ndk/21.4.7075529/build/cmake/android.toolchain.cmake\n-DCMAKE_MAKE_PROGRAM\u003d/Users/presidentsdata/Library/Android/sdk/cmake/3.18.1/bin/ninja\n-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\u003d/Users/presidentsdata/Desktop/Code/AndroidStudioProjects/SPRImage2/sdk/build/intermediates/cxx/Debug/5e616u3w/obj/arm64-v8a\n-DCMAKE_RUNTIME_OUTPUT_DIRECTORY\u003d/Users/presidentsdata/Desktop/Code/AndroidStudioProjects/SPRImage2/sdk/build/intermediates/cxx/Debug/5e616u3w/obj/arm64-v8a\n-DCMAKE_BUILD_TYPE\u003dDebug\n-B/Users/presidentsdata/Desktop/Code/AndroidStudioProjects/SPRImage2/sdk/.cxx/Debug/5e616u3w/arm64-v8a\n-GNinja\n-DANDROID_STL\u003dc++_shared\njvmArgs : \n\n",
-    "file_": "/Users/presidentsdata/Desktop/Code/AndroidStudioProjects/SPRImage2/sdk/libcxx_helper/CMakeLists.txt",
-    "tag_": "debug|arm64-v8a",
-    "diagnosticCode_": 0,
-    "memoizedIsInitialized": 1,
-    "unknownFields": {
-      "fields": {},
-      "fieldsDescending": {}
-    },
-    "memoizedSize": -1,
-    "memoizedHashCode": 1623872091
-  },
-  {
-    "level_": 0,
-    "message_": "Exiting generation of /Users/presidentsdata/Desktop/Code/AndroidStudioProjects/SPRImage2/sdk/.cxx/Debug/5e616u3w/arm64-v8a/compile_commands.json.bin normally",
-    "file_": "/Users/presidentsdata/Desktop/Code/AndroidStudioProjects/SPRImage2/sdk/libcxx_helper/CMakeLists.txt",
-    "tag_": "debug|arm64-v8a",
-    "diagnosticCode_": 0,
-    "memoizedIsInitialized": 1,
-    "unknownFields": {
-      "fields": {},
-      "fieldsDescending": {}
-    },
-    "memoizedSize": -1,
-    "memoizedHashCode": 1110544527
-  },
-  {
-    "level_": 0,
-    "message_": "done executing cmake",
-    "file_": "/Users/presidentsdata/Desktop/Code/AndroidStudioProjects/SPRImage2/sdk/libcxx_helper/CMakeLists.txt",
-    "tag_": "debug|arm64-v8a",
-    "diagnosticCode_": 0,
-    "memoizedIsInitialized": 1,
-    "unknownFields": {
-      "fields": {},
-      "fieldsDescending": {}
-    },
-    "memoizedSize": -1,
-    "memoizedHashCode": -1966854129
-  },
-  {
-    "level_": 0,
-    "message_": "write command file /Users/presidentsdata/Desktop/Code/AndroidStudioProjects/SPRImage2/sdk/.cxx/Debug/5e616u3w/arm64-v8a/metadata_generation_command.txt",
-    "file_": "/Users/presidentsdata/Desktop/Code/AndroidStudioProjects/SPRImage2/sdk/libcxx_helper/CMakeLists.txt",
-    "tag_": "debug|arm64-v8a",
-    "diagnosticCode_": 0,
-    "memoizedIsInitialized": 1,
-    "unknownFields": {
-      "fields": {},
-      "fieldsDescending": {}
-    },
-    "memoizedSize": -1,
-    "memoizedHashCode": 491806973
+    "memoizedHashCode": 313494218
   },
   {
     "level_": 0,
