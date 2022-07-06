@@ -16,4 +16,4 @@ rootProject.name = "SPRImage2"
 include "opencv"
 project(":opencv").projectDir = file("sdk")
 include ':app'
-include ':sdk'
+//include ':sdk'

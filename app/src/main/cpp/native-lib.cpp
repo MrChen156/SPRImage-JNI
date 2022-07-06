@@ -16,7 +16,7 @@ Java_com_example_sprimage2_MainActivity_computeFromJni(
     cur.convertTo(cur, CV_16S);
     ref.convertTo(ref, CV_16S);
     Mat result(cur.rows, cur.cols, CV_16S);
-    cv::absdiff(cur, ref, result);
+    result = cur - ref;
     std::vector<Mat> channel;
     cv::split(result, channel);
     Mat red_channel = channel.at(2);

@@ -23,6 +23,8 @@ import org.opencv.core.Mat;
 
 import java.io.FileNotFoundException;
 import java.util.Objects;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -35,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private final String TOP_TAG = "SPR-Image_2";
     private Uri referenceImageUri = null;
     private Uri currentImageUri = null;
+    private final ExecutorService executorService = Executors.newFixedThreadPool(2);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -130,16 +133,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        Double result = computeFromJni(cur.getNativeObjAddr(), ref.getNativeObjAddr());
+        // 这一步耗时比较长，想办法移到后台：
+        String result = computeFromJNI(cur.getNativeObjAddr(), ref.getNativeObjAddr());
+        /*
+        这一步要实现的效果的是把运算放到后台上，运算结果没出来时textView显示不变。
+        当computeFromJNI完成运算之后，把结果显示到textView上面。
+        不要用AsyncTask，用Executor解决这个问题，我自己写了一个MyApplication用来初始化线程池。
+        */
         TextView textView = (TextView) findViewById(R.id.sample_text);
-        textView.setText(result.toString());
+        textView.setText(result);
+    }
+
+    private String computeFromJNI(long mat_Addr_cur, long mat_Addr_ref) {
+        Log.i(TOP_TAG, "Cur地址：" + mat_Addr_cur + "，Ref地址：" + mat_Addr_ref);
+        String result = String.valueOf(computeFromJni(mat_Addr_cur, mat_Addr_ref));
+        Log.i(TOP_TAG, "运算结果：" + result);
+        return result;
     }
 
     private native double computeFromJni(long mat_Addr_cur, long mat_Addr_ref);
 
-    /**
-     * A native method that is implemented by the 'sprimage2' native library,
-     * which is packaged with this application.
-     */
-//    public native String stringFromJNI();
 }

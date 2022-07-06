@@ -39,7 +39,7 @@
       "cxxFolder": "/Users/presidentsdata/Desktop/Code/AndroidStudioProjects/SPRImage2/sdk/.cxx",
       "intermediatesBaseFolder": "/Users/presidentsdata/Desktop/Code/AndroidStudioProjects/SPRImage2/sdk/build/intermediates",
       "intermediatesFolder": "/Users/presidentsdata/Desktop/Code/AndroidStudioProjects/SPRImage2/sdk/build/intermediates/cxx",
-      "gradleModulePathName": ":sdk",
+      "gradleModulePathName": ":opencv",
       "moduleRootFolder": "/Users/presidentsdata/Desktop/Code/AndroidStudioProjects/SPRImage2/sdk",
       "moduleBuildFile": "/Users/presidentsdata/Desktop/Code/AndroidStudioProjects/SPRImage2/sdk/build.gradle",
       "makeFile": "/Users/presidentsdata/Desktop/Code/AndroidStudioProjects/SPRImage2/sdk/libcxx_helper/CMakeLists.txt",
