@@ -16,15 +16,16 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.sprimage2.databinding.ActivityMainBinding;
+//import com.example.sprimage2.databinding.ActivityMainBinding;
 
 import org.opencv.android.Utils;
 import org.opencv.core.Mat;
 
 import java.io.FileNotFoundException;
 import java.util.Objects;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+
+//import java.util.concurrent.ExecutorService;
+//import java.util.concurrent.Executors;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -33,11 +34,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         System.loadLibrary("sprimage2");
     }
 
-    private ActivityMainBinding binding;
+//    private ActivityMainBinding binding;
     private final String TOP_TAG = "SPR-Image_2";
     private Uri referenceImageUri = null;
     private Uri currentImageUri = null;
-    private final ExecutorService executorService = Executors.newFixedThreadPool(2);
+//    private final ExecutorService executorService = Executors.newFixedThreadPool(2);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,9 +46,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         Log.i(TOP_TAG, "开干！");
 
-        Button btnCurrent = (Button) findViewById(R.id.curBtn);
-        Button btnReference = (Button) findViewById(R.id.refBtn);
-        Button btnCompute = (Button) findViewById(R.id.comBtn);
+        Button btnCurrent = findViewById(R.id.curBtn);
+        Button btnReference = findViewById(R.id.refBtn);
+        Button btnCompute = findViewById(R.id.comBtn);
 
 //        binding = ActivityMainBinding.inflate(getLayoutInflater());
 //        setContentView(binding.getRoot());
@@ -76,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent data = result.getData();
                 referenceImageUri = Objects.requireNonNull(data).getData();
                 if (referenceImageUri != null) {
-                    ImageView refView = (ImageView) findViewById(R.id.ReferenceView);
+                    ImageView refView = findViewById(R.id.ReferenceView);
                     refView.setImageURI(referenceImageUri);
                 }
             }
@@ -88,7 +89,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 public void onActivityResult(Uri uri) {
                     currentImageUri = uri;
                     if (currentImageUri != null) {
-                        ImageView curView = (ImageView) findViewById(R.id.CurrentView);
+                        ImageView curView = findViewById(R.id.CurrentView);
                         curView.setImageURI(currentImageUri);
                     }
                 }
@@ -110,12 +111,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startComputation();
         } else if (currentImageUri == null) {
             selectCurrent();
-        } else if (referenceImageUri == null) {
+        } else{
             selectReference();
         }
     }
 
-    public void startComputation(){
+    public void startComputation() {
         // 判断大小在后面解决
         // 这里解决传参问题
         Bitmap bitmap;
@@ -135,22 +136,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         // 这一步耗时比较长，想办法移到后台：
         String result = computeFromJNI(cur.getNativeObjAddr(), ref.getNativeObjAddr());
-        /*
-        这一步要实现的效果的是把运算放到后台上，运算结果没出来时textView显示不变。
-        当computeFromJNI完成运算之后，把结果显示到textView上面。
-        不要用AsyncTask，用Executor解决这个问题，我自己写了一个MyApplication用来初始化线程池。
-        */
-        TextView textView = (TextView) findViewById(R.id.sample_text);
-        textView.setText(result);
+        TextView textView = findViewById(R.id.sample_text);
+        runOnUiThread(()->{
+            textView.setText(result);
+        });
     }
 
-    private String computeFromJNI(long mat_Addr_cur, long mat_Addr_ref) {
-        Log.i(TOP_TAG, "Cur地址：" + mat_Addr_cur + "，Ref地址：" + mat_Addr_ref);
-        String result = String.valueOf(computeFromJni(mat_Addr_cur, mat_Addr_ref));
-        Log.i(TOP_TAG, "运算结果：" + result);
-        return result;
+        private String computeFromJNI( long mat_Addr_cur, long mat_Addr_ref){
+            Log.i(TOP_TAG, "Cur地址：" + mat_Addr_cur + "，Ref地址：" + mat_Addr_ref);
+            String result = String.valueOf(computeFromJni(mat_Addr_cur, mat_Addr_ref));
+            Log.i(TOP_TAG, "运算结果：" + result);
+            return result;
+        }
+
+        private native double computeFromJni ( long mat_Addr_cur, long mat_Addr_ref);
+
     }
-
-    private native double computeFromJni(long mat_Addr_cur, long mat_Addr_ref);
-
-}
